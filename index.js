@@ -1,4 +1,5 @@
 require('http').createServer(function (req, res) {
-    res.write(['yo dawg!', 'hot diggity!', 'ringadingding!'][Math.floor(Math.random()*3)]); 
+    console.log(req.url, req.socket.remoteAddress, req.headers['x-forwarded-for']);
+    res.write(req.url + " -> " + ['yo dawg!', 'hot diggity!', 'ringadingding!'][Math.floor(Math.random()*3)]); 
     res.end();
-}).listen(8080);
+}).listen(4099);
